@@ -23,13 +23,11 @@
 -->
   <script>
     "use strict";
-    let d = prompt("Введите температуру");
-    let df
-    df = (9 / 5) * d + 32;
-    alert("Цельсий: " + d + ", " + "Фаренгейт: " + df );
-
-
+    const dCelsius = +prompt("Введите температуру");
+    const dFahrenheit  = Math.round((9 / 5) * dCelsius + 32);
     
+    alert(`Цельсий: ${dCelsius} , Фаренгейт: ${dFahrenheit}`);
+
 
   </script>
 </body>
