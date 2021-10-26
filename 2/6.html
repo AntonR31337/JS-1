@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Необязательное задание.
+
+Необходимо реализовать функцию, которая будет принимать первым аргументом
+целое положительное число, в следующих трех аргументах функция принимает слова
+в разных склонениях.
+Функция должна возвращать одно из трех переданных в параметры слов подходящее
+под число, которое передано первым аргументом.
+
+Пример:
+console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок")); // "яблоко"
+console.log(declinationOfNumber(2, "мяч", "мяча", "мячей")); // "мяча"
+console.log(declinationOfNumber(5, "стул", "стула", "стульев")); // "стульев"
+
+Функция должна работать с любым словом и любым целым положительным числом.
+Все аргументы, которые будут передаваться функции будут верны.
+-->
+<script>
+  "use strict";
+
+  let howMuch = +prompt("Введите количество");
+
+  /**
+ * Функция возвращать одно из трех переданных в параметры слов подходящее 
+ * под число, которое передано первым аргументом.
+ * 
+ * @param {number} howMuch - число введенное пользователем из перем. howMuch
+ * @param {string} item1 - первое строковое значение
+ * @param {string} item2 - второе строковое значение
+ * @param {string} item3 - третье строковое значение
+ * @returns {string} Возвращаем один из трех строковых значений подходящее 
+ * под число
+ * Если нет подходищих условий, то в функцию вернем item3
+ */
+  function declinationOfNumber(howMuch, item1, item2, item3) {
+    const count = howMuch % 10;
+      if (count === 1) {
+          return item1;
+      } else if (count > 1 && count < 5) {
+          return item2;
+      } else if (count >= 5 && count <= 20) {
+          return item3;
+      } else {
+        return item3;
+      }
+  }
+  console.log(declinationOfNumber(howMuch, "яблоко", "яблока", "яблок"));
+  console.log(declinationOfNumber(4, "яблоко", "яблока", "яблок"));
+  console.log(declinationOfNumber(125, "яблоко", "яблока", "яблок"));
+
+</script>
+</body>
+</html>
