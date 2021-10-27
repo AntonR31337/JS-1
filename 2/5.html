@@ -36,7 +36,7 @@ console.log(mathOperation(5, 4, "+"));
 console.log(mathOperation(4, 6, "-"));
 console.log(mathOperation(5, 4, "*"));
 console.log(mathOperation(5, 4, "/"));
-console.log(mathOperation(5, 4, ":"));
+console.log(mathOperation(5, 4, "ˆ"));
 
 
 /**
@@ -59,7 +59,7 @@ function mathOperation(arg1, arg2, operation) {
   } else if (operation == "/") {
     return separation(arg1, arg2);
   } else {
-    return operation = NaN;
+    return NaN;
   }
 } 
 
