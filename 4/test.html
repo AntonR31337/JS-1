@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+ 
+    
+
+
+
+
+<script>
+    "use string"
+
+
+function Car(model, year, type, color) {
+    this.model = model;
+    this.year = year;
+    this.type = type;
+    this.color = color;
+}
+
+function SuperCar(model, year, type, color, act) {
+    Car.call(this, model, year, type, color)
+        this.act = act;
+}
+
+Car.prototype = {
+    beep() {
+        console.log(`${this.model} подаёт сигнал`);
+    }
+}
+
+const Car_1 = new Car("BMW", 1992, "седан", "белый");
+const Car_2 = new Car("Volvo", 2003, "хэчбэк", "серый");
+const Truck_1 = new SuperCar("ГАЗ", 2009, "пикап", "желтый", "эвакуатор");
+console.log(Car_1, Car_2);
+console.log(Truck_1);
+
+Car_1.beep();
+Car_2.beep();
+</script>
+</body>
+</html>
