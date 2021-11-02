@@ -31,7 +31,38 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+   /**
+ * Функция принимает 
+ * @param {number} yourNumber - целое положительное число в диапазоне от 0 до 1000.
+ * и возвращает обычный объект с тремя свойствами:
+ * 
+ * @param {string} hundreds - количество сотен в параметре функции.
+ * @param {string} dozens - количество десятков в параметре функции.
+ * @param {string} units - количество единиц в параметре функции.
+ * 
+ * Если функции было передано не целое положительное число, либо число в ином
+ * диапазоне, нежели задано в условии, функция сообщает об ошибке и возвращает 
+ * пустой объект
+ */
+  function getDigitsOfNumber(number){
+    if (Number.isInteger(number) == true && number >= 0 && number < 1000 ){
+        let hundreds = Math.trunc((number / 100) % 10);
+        let dozens = Math.trunc((number / 10) % 10);
+        let units = Math.trunc(number % 10);
+
+        const result = {hundreds, dozens, units};
+          return result
+    } else {
+        console.error(` Что-то пошло не так, проверьте значение ${number}`);
+      return null
+    }
+  }
+
+  let yourNumber = +prompt("ВВедите число от 0 до 999 включительно")
+  const obj = getDigitsOfNumber(yourNumber);
+  console.log(obj);
+
+
 </script>
 </body>
 </html>
