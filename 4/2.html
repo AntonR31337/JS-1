@@ -50,7 +50,76 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+
+function PostES5 (author, text){
+  this.author = author;
+  this.text = text;
+  this.date = new Date();
+}
+
+PostES5.prototype.edit = function(text){
+  this.text = text;
+  this.date = new Date();
+  console.log(text);
+}
+
+const post1 = new PostES5("Antonio", "It's alive");
+console.log(post1);
+post1.edit("hello world");
+
+// PostES6
+
+class PostES6 {
+  constructor (author, text){
+    this.author = author;
+    this.text = text;
+    this.date = new Date();
+  }
+  edit (text){
+    this.text = text;
+    this.date = new Date();
+    console.log(text);
+  }
+}
+
+const post2 = new PostES6("Antonio", "It's alive");
+console.log(post2);
+post1.edit("hello new world");
+
+// ------- 2 ----------
+
+
+function AttachedPostES5(author, text){
+  this.highlighted = false;
+  PostES5.call(this, author, text);
+}
+
+AttachedPostES5.prototype.makeTextHighlighted = function(){
+  this.highlighted = true;
+}
+
+const Post_2 = new AttachedPostES5("Джек", 
+  "Убить меня ты можешь, а вот оскорблять не смей!");
+
+  console.log(Post_2);
+  Post_2.makeTextHighlighted();
+
+  // AttachedPostES6
+
+  class AttachedPostES6 extends PostES6 {
+    constructor(author, text){
+      super(author, text)
+      this.highlighted = false;
+    }
+    makeTextHighlighted(){
+  this.highlighted = true;
+    }
+  }
+
+const Post_3 = new AttachedPostES6("Mr. Turner", "Ты либо безумец, либо гений");
+console.log(Post_3);
+// Post_3.makeTextHighlighted();
+
 </script>
 </body>
 </html>
