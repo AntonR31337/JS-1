@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
@@ -14,65 +15,102 @@
     }
   </style>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
 стирать, код с решением задачи пишем под комментарием.
 -->
 
-<input id="from" type="text">
-В инпуте написано: <span></span>
+  <input id="from" type="text">
+  В инпуте написано: <span></span>
 
-<br>
-
-<button class="messageBtn">Показать блок</button>
-<div class="message">
-  Привет :)
-</div>
-
-<br>
-
-<form>
-  <input id="first" type="text"><br>
   <br>
-  <input id="second" type="text"><br>
+
+  <button class="messageBtn">Показать блок</button>
+  <div class="message">
+    Привет :)
+  </div>
+
   <br>
-  <button>Отправить</button>
-</form>
 
-<script>
-  "use strict";
+  <form>
+    <input id="first" type="text"><br>
+    <br>
+    <input id="second" type="text"><br>
+    <br>
+    <button>Отправить</button>
+  </form>
 
-  /*
-  1. При изменении значения в input, значение содержащееся в нем должно
-  моментально отображаться в span. То есть при печати в input'е тег span также
-  должен меняться.
-  */
-  document.getElementById("from").addEventListener('input', (event) => {
-    const cloneTextToSpan = document.querySelector("body > span");
-    cloneTextToSpan.innerText = event.target.value
-  });
+  <script>
+    "use strict";
 
-  
-  /*
-  2. При клике на кнопку с классом messageBtn необходимо элементу с классом
-  message:
-  1) добавить два класса: animate__animated и animate__fadeInLeftBig
-  2) поставить данному элементу стиль visibility в значение 'visible'.
-   */
+    /*
+    1. При изменении значения в input, значение содержащееся в нем должно
+    моментально отображаться в span. То есть при печати в input'е тег span также
+    должен меняться.
+    */
+    document.getElementById("from").addEventListener('input', (event) => {
+      const cloneTextToSpan = document.querySelector("body > span");
+      cloneTextToSpan.innerText = event.target.value
+    });
 
 
-  /*
-  3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
-  форме. Если какое-либо поле не заполнено, его необходимо подсветить и не дать
-  отправить форму. Форма отправляется, только если оба поля не пусты.
-  Если поле было подсвечено в прошлый раз, а в другой раз поле было заполнено,
-  то выделение данного поля надо убрать.
-   */
+    /*
+    2. При клике на кнопку с классом messageBtn необходимо элементу с классом
+    message:
+    1) добавить два класса: animate__animated и animate__fadeInLeftBig
+    2) поставить данному элементу стиль visibility в значение 'visible'.
+     */
+    const messageBtn = document.querySelector(".messageBtn");
+    const message = document.querySelector(".message");
+    messageBtn.addEventListener('click', event => {
+      message.classList.add("animate__animated", "animate__fadeInLeftBig");
+      message.style.visibility = "visible";
+    });
+    
 
+    /*
+    3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
+    форме. Если какое-либо поле не заполнено, его необходимо подсветить и не дать
+    отправить форму. Форма отправляется, только если оба поля не пусты.
+    Если поле было подсвечено в прошлый раз, а в другой раз поле было заполнено,
+    то выделение данного поля надо убрать.
+     */
+      const first = document.getElementById('first');
+      const second = document.getElementById('second');      
+    //  document.querySelector("body > form > button").addEventListener('click',
+    //   event => {
+    //     if (first.value === "")  {
+    //       event.preventDefault();
+    //       first.style.borderColor = 'red'
+    //       console.error('Пустое поле')
+    //     } else if (second.value === ""){
+    //       event.preventDefault();
+    //       second.style.borderColor = 'red'
+    //       console.error('Пустое поле')
+    //     }
+    //   });
 
-</script>
+      document.querySelector("body > form > button").addEventListener('click',
+        event => {
+          if (first.value === "")  {
+            first.style.borderColor = 'red'
+          } 
+          if (second.value === ""){
+            second.style.borderColor = 'red'
+          }
+          if (first.value === "" || second.value === "") {
+            event.preventDefault();
+            console.error('Пустое поле')
+          }
+      });
+
+      
+
+  </script>
 </body>
+
 </html>
