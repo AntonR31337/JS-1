@@ -47,7 +47,7 @@
         let star = event.target;
         do {
           star.classList.add('golden');
-          star = star.previousElementSibling
+          star = star.previousElementSibling;
         }
         while (star);
         });
@@ -65,7 +65,7 @@
         let star = event.target;
         do {
           star.classList.remove('golden');
-          star = star.nextElementSibling
+          star = star.nextElementSibling;
         }
         while (star);
         });
