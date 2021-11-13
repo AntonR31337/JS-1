@@ -60,9 +60,9 @@
    const changeBtnText = function(el){
       if (el.tagName !== 'BUTTON') {
         return
-      } else {
-          el.textContent = 'Добавлено';
       }
+          el.textContent = 'Добавлено';
+          el.disabled = true;
     };
    document.addEventListener(
      'click', event => changeBtnText(event.target)
@@ -79,6 +79,7 @@
    const product1 = document.querySelector(".product");
     const product4 = product1.cloneNode(true);
     document.querySelector("body").append(product4);
+    document.querySelector("body > div:nth-child(5) > div").textContent = "Товар 4";
     product4.querySelector("img").src = 'http://lorempixel.com/200/300/food/4/';
 
     

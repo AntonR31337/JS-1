@@ -60,14 +60,13 @@
      */
      stars.addEventListener('mouseout', event => {
         if (event.target.tagName !== 'I') {
-          return
+          return;
         }
         let star = event.target;
         do {
           star.classList.remove('golden');
           star = star.nextElementSibling;
-        }
-        while (star);
+        } while (star);
         });
 
     /*
