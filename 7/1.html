@@ -81,7 +81,7 @@
    const inputRange = document.querySelector("body > div > input[type=range]");
    inputRange.value = "20";
 
-    inputRange.addEventListener('input', event => {
+    inputRange.addEventListener('input', () => {
       inputDiv.style.fontSize = inputRange.value + "px";
       console.log(inputRange.value);
     })
